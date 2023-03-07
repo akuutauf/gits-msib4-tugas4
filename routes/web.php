@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\IndexPage;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+
+// cara pertama (dengan menggunakan controller)
+Route::get('/', [IndexPage::class, 'index']);
+
+// cara kedua (tanpa controller)
+// Route::get('/', function () {
+//     return view('table');
+// });
+
+Route::get('/welcome', function () {
     return view('welcome');
 });
