@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>MSIB | Mentors and Mentees Data Table</title>
+    <link rel="icon" type="image/png" href="{{ asset('icons/github-alt.svg') }}" />
+    <title>MSIB | Mentees Data Table</title>
 
     {{-- Framework css Bootstrap --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
@@ -13,87 +14,65 @@
 
     {{-- Style CSS Manual --}}
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+    {{-- Font Cdn --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    {{-- Aos Animation --}}
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
     <section class="intro">
-        <div class="bg-image h-100"
-            style="background-image: url('https://mdbootstrap.com/img/Photos/new-templates/tables/img2.jpg');">
+        <div class="bg-image bg" style="background-image: url('https://i.postimg.cc/CM9nPBGp/japanese.jpg');">
             <div class="mask d-flex align-items-center h-100" style="background-color: rgba(0,0,0,.25);">
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-12">
-                            <div class="card bg-dark shadow-2-strong">
+                            <h5 class="text-white pb-3">Data Mentees dengan Mentor <span
+                                    class="text-warning bg-white px-3 py-1 rounded text-mentor-color"
+                                    data-aos="zoom-in-left" data-aos-duration="3000"><b>Mr. Ala
+                                        Rai Abdiallah</b></span>
+                            </h5>
+                            {{-- <p>{{ $user }}</p> --}}
+                            <div class="card bg-dark shadow-2-strong" data-aos="zoom-out-up" data-aos-duration="1000">
                                 <div class="card-body">
                                     <div class="table-responsive">
                                         <table class="table table-dark table-borderless mb-0">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col">EMPLOYEES</th>
-                                                    <th scope="col">POSITION</th>
-                                                    <th scope="col">CONTACTS</th>
-                                                    <th scope="col">AGE</th>
-                                                    <th scope="col">ADDRESS</th>
-                                                    <th scope="col">SALARY</th>
+                                                    <th scope="col">No</th>
+                                                    <th scope="col">Name</th>
+                                                    <th scope="col">Email</th>
+                                                    <th scope="col">University</th>
+                                                    <th scope="col">Mentor</th>
+                                                    {{-- <th scope="col">Created At</th>
+                                                    <th scope="col">Updated At</th> --}}
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <th scope="row">Tiger Nixon</th>
-                                                    <td>System Architect</td>
-                                                    <td>tnixon12@example.com</td>
-                                                    <td>61</td>
-                                                    <td>Edinburgh</td>
-                                                    <td>$320,800</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Sonya Frost</th>
-                                                    <td>Software Engineer</td>
-                                                    <td>sfrost34@example.com</td>
-                                                    <td>23</td>
-                                                    <td>Edinburgh</td>
-                                                    <td>$103,600</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Jena Gaines</th>
-                                                    <td>Office Manager</td>
-                                                    <td>jgaines75@example.com</td>
-                                                    <td>30</td>
-                                                    <td>London</td>
-                                                    <td>$90,560</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Quinn Flynn</th>
-                                                    <td>Support Lead</td>
-                                                    <td>qflyn09@example.com</td>
-                                                    <td>22</td>
-                                                    <td>Edinburgh</td>
-                                                    <td>$342,000</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Charde Marshall</th>
-                                                    <td>Regional Director</td>
-                                                    <td>cmarshall28@example.com</td>
-                                                    <td>36</td>
-                                                    <td>San Francisco</td>
-                                                    <td>$470,600</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Haley Kennedy</th>
-                                                    <td>Senior Marketing Designer</td>
-                                                    <td>hkennedy63@example.com</td>
-                                                    <td>43</td>
-                                                    <td>London</td>
-                                                    <td>$313,500</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">Tatyana Fitzpatrick</th>
-                                                    <td>Regional Director</td>
-                                                    <td>tfitzpatrick00@example.com</td>
-                                                    <td>19</td>
-                                                    <td>Warsaw</td>
-                                                    <td>$385,750</td>
-                                                </tr>
+                                                @php
+                                                    $numberCount = 1;
+                                                @endphp
+
+                                                @foreach ($user as $menteesItem)
+                                                    <tr>
+                                                        <td>{{ $numberCount }}</td>
+                                                        <th scope="row">{{ $menteesItem->name }}</th>
+                                                        <td>{{ $menteesItem->email }}</td>
+                                                        <td>{{ $menteesItem->university }}</td>
+                                                        <td>{{ $menteesItem->mentor }}</td>
+                                                        {{-- <td>{{ $menteesItem->created_at }}</td>
+                                                        <td>{{ $menteesItem->updated_at }}</td> --}}
+                                                    </tr>
+
+                                                    @php
+                                                        $numberCount++;
+                                                    @endphp
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>
@@ -115,6 +94,12 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+
+    {{-- Aos JS --}}
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
     </script>
 
 </body>
