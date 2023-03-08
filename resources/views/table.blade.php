@@ -27,7 +27,7 @@
 
 <body>
     <section class="intro">
-        <div class="bg-image bg" style="background-image: url('https://i.postimg.cc/CM9nPBGp/japanese.jpg');">
+        <div class="bg-image bg" style="background-image: url('https://i.postimg.cc/5tJ0c80D/japanese.jpg');">
             <div class="mask d-flex align-items-center h-100" style="background-color: rgba(0,0,0,.25);">
                 <div class="container">
                     <div class="row justify-content-center">
